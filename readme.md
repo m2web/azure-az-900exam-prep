@@ -2,7 +2,7 @@
 
 ## 🚀 Overview
 
-Welcome to **AZ-900 Study Guide**! This repository is designed to [briefly explain what your project does]. It helps [describe the purpose or benefits] and provides [highlight key features].
+Welcome to **AZ-900 Study Guide**! This repository is designed to provide a location for all the resources we need to pass the AZ-900 exam. The AZ-900 exam is the Microsoft Azure Fundamentals exam, which is designed for candidates looking to demonstrate foundational-level knowledge of cloud services and how those services are provided with Microsoft Azure. This repository includes a study guide, a course, and other resources to help you prepare for the exam.
 
 ## ✨ Features
 
@@ -34,6 +34,7 @@ xdg-open study-guide.md
 ```
 
 ## 🐙 GitHub Stuff
+
 ![GitHub Repo Stars](https://img.shields.io/github/stars/m2web/azure-az-900exam-prep)
 ![GitHub License](https://img.shields.io/github/license/m2web/azure-az-900exam-prep)
 ![GitHub Issues](https://img.shields.io/github/issues/m2web/azure-az-900exam-prep)
