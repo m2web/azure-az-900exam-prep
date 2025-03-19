@@ -3,6 +3,7 @@
 ## Describe Cloud Concepts (25–30%)
 
 ### Describe Cloud Computing
+
 - Define cloud computing
 - Describe the shared responsibility model
 - Define cloud models, including public, private, and hybrid
@@ -12,12 +13,14 @@
 - Describe serverless
 
 ### Describe the Benefits of Using Cloud Services
+
 - Describe the benefits of high availability and scalability in the cloud
 - Describe the benefits of reliability and predictability in the cloud
 - Describe the benefits of security and governance in the cloud
 - Describe the benefits of manageability in the cloud
 
 ### Describe Cloud Service Types
+
 - Describe infrastructure as a service (IaaS)
 - Describe platform as a service (PaaS)
 - Describe software as a service (SaaS)
@@ -28,6 +31,7 @@
 ## Describe Azure Architecture and Services (35–40%)
 
 ### Describe the Core Architectural Components of Azure
+
 - Describe Azure regions, region pairs, and sovereign regions
 - Describe availability zones
 - Describe Azure datacenters
@@ -37,6 +41,7 @@
 - Describe the hierarchy of resource groups, subscriptions, and management groups
 
 ### Describe Azure Compute and Networking Services
+
 - Compare compute types, including containers, virtual machines, and functions
 - Describe virtual machine options, including:
   - Azure Virtual Machines
@@ -58,6 +63,7 @@
 - Define public and private endpoints
 
 ### Describe Azure Storage Services
+
 - Compare Azure Storage services
 - Describe storage tiers
 - Describe redundancy options
@@ -71,6 +77,7 @@
   - Azure Data Box
 
 ### Describe Azure Identity, Access, and Security
+
 - Describe directory services in Azure, including:
   - Microsoft Entra ID
   - Microsoft Entra Domain Services
@@ -92,17 +99,20 @@
 ## Describe Azure Management and Governance (30–35%)
 
 ### Describe Cost Management in Azure
+
 - Describe factors that can affect costs in Azure
 - Compare the Pricing Calculator and the Total Cost of Ownership (TCO) Calculator
 - Describe cost management capabilities in Azure
 - Describe the purpose of tags
 
 ### Describe Features and Tools in Azure for Governance and Compliance
+
 - Describe the purpose of Microsoft Purview in Azure
 - Describe the purpose of Azure Policy
 - Describe the purpose of resource locks
 
 ### Describe Features and Tools for Managing and Deploying Azure Resources
+
 - Describe the Azure portal
 - Describe Azure Cloud Shell, including:
   - Azure Command-Line Interface (CLI)
@@ -112,6 +122,7 @@
 - Describe Azure Resource Manager (ARM) and ARM templates
 
 ### Describe Monitoring Tools in Azure
+
 - Describe the purpose of Azure Advisor
 - Describe Azure Service Health
 - Describe Azure Monitor, including:
