@@ -44,66 +44,107 @@
 ### Describe the Core Architectural Components of Azure
 
 - Describe Azure regions, region pairs, and sovereign regions
-- Describe availability zones
-- Describe Azure datacenters
+    **Azure Regions** are geographical areas containing one or more datacenters. They allow you to deploy resources close to your users to reduce latency and meet compliance requirements.
+	  **Region Pairs** consist of two regions within the same geography, providing redundancy and disaster recovery. They offer benefits like prioritized recovery, staggered updates, and physical isolation.
+	  **Sovereign Regions** are special regions operated by sovereign entities to meet specific compliance and legal requirements. Examples include Azure Government regions in the US and Azure China regions.
+- Describe availability zones - `Availability Zones` are physically separate locations within an Azure region. Each zone has independent power, cooling, and networking to ensure high availability and resilience. They are designed to protect applications and data from datacenter failures.
+- Describe Azure datacenters - `Azure Datacenters` are physical facilities that house the infrastructure supporting Azure services. They are strategically located around the world to provide global coverage, redundancy, and compliance with local regulations.
 - Describe Azure resources and resource groups
-- Describe subscriptions
-- Describe management groups
-- Describe the hierarchy of resource groups, subscriptions, and management groups
+    **Azure Resources** are instances of services you can create in Azure, such as virtual machines, storage accounts, and databases.
+	  **Resource Groups** are containers that hold related resources for an Azure solution. They help manage and organize resources that share the same lifecycle, making it easier to deploy, update, and delete them as a group.
+- Describe subscriptions - `Subscriptions` are agreements with Microsoft to use Azure services. They provide a way to manage billing, access, and resource quotas. Each subscription is associated with a specific Azure account and can contain multiple resource groups.
+- Describe management groups - `Management Groups` are containers that help you manage access, policies, and compliance across multiple Azure subscriptions. They provide a hierarchical structure for organizing subscriptions and applying governance rules.
+- Describe the hierarchy of resource groups, subscriptions, and management groups - The hierarchy in Azure is as follows:
+    **Management Groups**: At the top level, they help manage multiple subscriptions.
+    **Subscriptions**: Under management groups, they logically associate user accounts with resources.
+    **Resource Groups**: Within subscriptions, they organize resources that share the same permissions and policies.
+    **Resources**: The individual instances of services within resource groups.
 
 ### Describe Azure Compute and Networking Services
 
 - Compare compute types, including containers, virtual machines, and functions
+  - **Containers**: Lightweight, portable, and efficient, containers package applications and their dependencies together. They run consistently across different environments and are ideal for microservices and scalable applications.
+  - **Virtual Machines (VMs)**: Provide full control over the operating system and environment. VMs are suitable for applications requiring specific OS configurations, legacy applications, and custom software.
+  - **Functions**: Serverless compute service that runs code in response to events. Functions are ideal for event-driven applications, microservices, and background tasks.
 - Describe virtual machine options, including:
-  - Azure Virtual Machines
-  - Azure Virtual Machine Scale Sets
-  - Availability sets
-  - Azure Virtual Desktop
+  - **Azure Virtual Machines**: On-demand, scalable computing resources that provide full control over the OS and environment. Suitable for a wide range of applications.
+  - **Azure Virtual Machine Scale Sets**: Manage and scale a group of load-balanced VMs. Automatically increase or decrease the number of VM instances in response to demand.
+  - **Availability Sets**: Logical grouping of VMs to ensure high availability. Distributes VMs across multiple fault domains to protect against hardware failures.
+  - **Azure Virtual Desktop**: Virtualized desktop and application service. Provides a secure, scalable, and cost-effective solution for remote work.
 - Describe the resources required for virtual machines
+  - **Compute**: CPU and memory resources.
+  - **Storage**: Disk storage for the OS, applications, and data.
+  - **Networking**: Virtual network, network interface cards (NICs), and public/private IP addresses.
 - Describe application hosting options, including:
-  - Web apps
-  - Containers
-  - Virtual machines
+  - **Web Apps**: Managed service for hosting web applications, RESTful APIs, and mobile backends. Provides built-in scaling and high availability.
+  - **Containers**: Run containerized applications using services like Azure Kubernetes Service (AKS) or Azure Container Instances. Offers portability and efficient resource utilization.
+  - **Virtual Machines**: Host applications that require full control over the OS and environment. Suitable for custom software and legacy applications.
 - Describe virtual networking, including:
-  - Purpose of Azure virtual networks
-  - Azure virtual subnets
-  - Peering
-  - Azure DNS
-  - Azure VPN Gateway
-  - ExpressRoute
+  - Purpose of Azure virtual networks - Provides a secure, isolated environment for Azure resources to communicate with each other, the internet, and on-premises networks
+  - Azure virtual subnets - Subdivisions of a virtual network, allowing you to segment and organize resources.
+  - Peering - Connects two or more virtual networks, enabling them to communicate as if they were on the same network.
+  - Azure DNS - Provides domain name resolution for Azure resources, enabling them to communicate using domain names instead of IP addresses.
+  - Azure VPN Gateway - Establishes secure, cross-premises connectivity between Azure and on-premises networks using IPsec/IKE VPN tunnels.
+  - ExpressRoute - Provides a private, dedicated connection between Azure and on-premises networks, bypassing the public internet for enhanced security and reliability.
 - Define public and private endpoints
+  - **Public Endpoints**: Accessible over the internet, allowing resources to communicate with external clients.
+  - **Private Endpoints**: Use private IP addresses within a virtual network, providing secure connectivity to Azure services without exposing them to the public internet.
 
 ### Describe Azure Storage Services
 
 - Compare Azure Storage services
+  - **Azure Blob Storage**: Massively scalable object storage for text and binary data. Ideal for storing unstructured data like documents, images, and videos [1](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction).
+  - **Azure Files**: Managed file shares that can be accessed via SMB and NFS protocols. Suitable for shared storage scenarios [1](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction).
+  - **Azure Queues**: Messaging store for reliable messaging between application components [1](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction).
+  - **Azure Tables**: NoSQL store for schemaless storage of structured data [1](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction).
+  - **Azure Managed Disks**: Block-level storage volumes for Azure VMs [1](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction).
+
 - Describe storage tiers
+  - **Hot Tier**: Optimized for data that is accessed or modified frequently. Highest storage costs, lowest access costs [2](https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview).
+  - **Cool Tier**: Optimized for data that is infrequently accessed or modified. Lower storage costs, higher access costs compared to the hot tier [2](https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview).
+  - **Cold Tier**: Optimized for data that is rarely accessed but requires fast retrieval. Lower storage costs, higher access costs compared to the cool tier [2](https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview).
+  - **Archive Tier**: Optimized for data that is rarely accessed and has flexible latency requirements. Lowest storage costs, highest access costs [2](https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview).
+
 - Describe redundancy options
+  - **Locally Redundant Storage (LRS)**: Replicates data within a single datacenter. Least expensive option [3](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy).
+  - **Zone-Redundant Storage (ZRS)**: Replicates data across multiple availability zones within a region [3](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy).
+  - **Geo-Redundant Storage (GRS)**: Replicates data to a secondary region, providing protection against regional outages [3](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy).
+  - **Read-Access Geo-Redundant Storage (RA-GRS)**: Provides read access to data in the secondary region [3](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy).
+
 - Describe storage account options and storage types
+  - **Standard General-Purpose v2 (GPv2)**: Supports blobs, files, queues, and tables. Recommended for most scenarios [4](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview).
+  - **Premium Block Blobs**: Optimized for high transaction rates and low latency [4](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview).
+  - **Premium File Shares**: Supports SMB and NFS file shares. Suitable for high-performance applications[4](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview).
+  - **Premium Page Blobs**: Optimized for page blobs only [4](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview).
+
 - Identify options for moving files, including:
-  - AzCopy
-  - Azure Storage Explorer
-  - Azure File Sync
+  - **AzCopy**: Command-line utility for copying files to and from Azure Storage [5](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-files).
+  - **Azure Storage Explorer**: GUI tool for managing Azure Storage resources [1](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction).
+  - **Azure File Sync**: Synchronizes Azure file shares with on-premises servers [6](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-migration-overview).
+
 - Describe migration options, including:
-  - Azure Migrate
-  - Azure Data Box
+  - **Azure Migrate**: Service for discovering, assessing, and migrating on-premises workloads to Azure [7](https://learn.microsoft.com/en-us/azure/migrate/migrate-services-overview).
+  - **Azure Data Box**: Physical devices for transferring large amounts of data to Azure [8](https://techcommunity.microsoft.com/blog/itopstalkblog/how-to-use-azure-data-box-for-migrations/1177156).
 
 ### Describe Azure Identity, Access, and Security
 
 - Describe directory services in Azure, including:
-  - Microsoft Entra ID
-  - Microsoft Entra Domain Services
+  - Microsoft Entra ID - Microsoft Entra ID (formerly Azure Active Directory) is a cloud-based identity and access management service. It helps employees sign in and access resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It provides features like single sign-on (SSO), multi-factor authentication (MFA), and conditional access to secure and manage identities [1](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id).
+  - Microsoft Entra Domain Services - Microsoft Entra Domain Services provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication without the need to deploy, manage, and patch domain controllers in the cloud. It allows you to lift and shift legacy applications to Azure without managing the underlying infrastructure [2](https://learn.microsoft.com/en-us/entra/identity/domain-services/overview) [3](https://azure.microsoft.com/en-us/products/microsoft-entra-ds/).
 - Describe authentication methods in Azure, including:
-  - Single sign-on (SSO)
-  - Multi-factor authentication (MFA)
-  - Passwordless authentication
+  - Single sign-on (SSO) - Single sign-on (SSO) is an authentication method that allows users to log in with a single set of credentials to access multiple applications. It simplifies the user experience by reducing the number of times users need to log in and enhances security by centralizing authentication [4](https://en.wikipedia.org/wiki/Single_sign-on) [5](https://www.onelogin.com/learn/how-single-sign-on-works).
+  - Multi-factor authentication (MFA) - Multi-factor authentication (MFA) requires users to provide two or more verification factors to gain access to a resource. This could include something they know (password), something they have (smartphone), or something they are (fingerprint). MFA adds an extra layer of security to the authentication process [6](https://support.microsoft.com/en-us/topic/what-is-multifactor-authentication-e5e39437-121c-be60-d123-eda06bddf661) [7](https://en.wikipedia.org/wiki/Multi-factor_authentication).
+  - Passwordless authentication - Passwordless authentication verifies a user's identity without requiring a password. Common methods include biometric authentication (fingerprint or facial recognition), hardware tokens, and magic links sent to an email or phone. This method reduces the risk of password-related attacks and improves user experience [8](https://auth0.com/blog/what-is-passwordless-authentication/) [9](https://www.microsoft.com/en-us/security/business/solutions/passwordless-authentication).
+
 - Describe external identities in Azure, including:
-  - Business-to-business (B2B)
-  - Business-to-customer (B2C)
-- Describe Microsoft Entra Conditional Access
-- Describe Azure role-based access control (RBAC)
-- Describe the concept of Zero Trust
-- Describe the purpose of the defense-in-depth model
-- Describe the purpose of Microsoft Defender for Cloud
+  - Business-to-business (B2B) - Business-to-business (B2B) allows organizations to securely share their applications and services with guest users from any other organization while maintaining control over their own corporate data. B2B collaboration enables external partners to use their own credentials to access resources [10](https://www.investopedia.com/terms/b/btob.asp) [11](https://businessmodelanalyst.com/business-to-business-b2b/).
+  - Business-to-customer (B2C) - Business-to-customer (B2C) is a service that enables businesses to provide identity and access management solutions to their customers. It allows customers to sign up and sign in using their preferred social, enterprise, or local account identities [12](https://www.investopedia.com/terms/b/btoc.asp) [13](https://www.shopify.com/blog/what-is-business-to-consumer-b2c-definition-and-guide).
+
+- Describe Microsoft Entra Conditional Access - Microsoft Entra Conditional Access is a tool used to enforce organizational policies based on identity-driven signals. It allows administrators to create policies that determine when and how users can access resources, using conditions such as user location, device state, and risk level. This helps balance security and productivity [15](https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview) [14](https://learn.microsoft.com/en-us/entra/identity/conditional-access/).
+- Describe Azure role-based access control (RBAC) - Azure role-based access control (RBAC) is a system that provides fine-grained access management of Azure resources. It allows you to assign roles to users, groups, and applications, specifying what actions they can perform on specific resources. RBAC helps ensure that users have only the permissions they need to perform their tasks [16](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview) [17](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles).
+- Describe the concept of Zero Trust - Zero Trust is a security model that assumes breaches are inevitable and verifies each request as though it originates from an open network. It emphasizes verifying explicitly, using least privilege access, and assuming breach. Zero Trust protects user accounts, devices, applications, and data regardless of their location [18](https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview) [19](https://en.wikipedia.org/wiki/Zero_trust_architecture).
+- Describe the purpose of the defense-in-depth model - The defense-in-depth model is a security strategy that employs multiple layers of defense to protect information and resources. Each layer provides a different level of security, ensuring that if one layer is breached, others remain intact. This approach helps mitigate the risk of a single point of failure [18](https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview).
+- Describe the purpose of Microsoft Defender for Cloud - Microsoft Defender for Cloud is a security management tool that provides threat protection across your Azure, on-premises, and multi-cloud environments. It helps detect and respond to threats, provides security recommendations, and ensures compliance with security best practices [18](https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview).
 
 ---
 
