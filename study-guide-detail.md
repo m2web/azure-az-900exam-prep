@@ -153,31 +153,99 @@
 ### Describe Cost Management in Azure
 
 - Describe factors that can affect costs in Azure
+  1. **Resource Utilization**: Running virtual machines (VMs) and other resources when not needed can lead to unnecessary charges [1](https://turbo360.com/blog/what-causes-azure-costs-to-increase).
+  2. **Data Storage**: The amount and type of data stored can significantly impact costs. Efficient data management is crucial [1](https://turbo360.com/blog/what-causes-azure-costs-to-increase).
+  3. **Network and Data Transfer**: Costs can increase with high data transfer rates and extensive use of network resources [1](https://turbo360.com/blog/what-causes-azure-costs-to-increase).
+  4. **Virtual Machine Sizes**: Larger VMs with more CPU and memory resources cost more [1](https://turbo360.com/blog/what-causes-azure-costs-to-increase).
+  5. **Lack of Cost Monitoring and Budgeting**: Without proper monitoring and budgeting, costs can escalate unexpectedly[1](https://turbo360.com/blog/what-causes-azure-costs-to-increase).
+  6. **Unoptimized Licensing**: Using premium services without evaluating the need can lead to higher costs [1](https://turbo360.com/blog/what-causes-azure-costs-to-increase).
+  7. **Third-Party Service Integration**: Integrating third-party services can add to the overall cost [1](https://turbo360.com/blog/what-causes-azure-costs-to-increase).
+  8. **Policies**: Policies that enforce certain configurations can impact costs [1](https://turbo360.com/blog/what-causes-azure-costs-to-increase).
 - Compare the Pricing Calculator and the Total Cost of Ownership (TCO) Calculator
+  - **Pricing Calculator**: 
+    - Estimates the cost of running specific Azure services based on user inputs.
+    - Provides a detailed breakdown of costs for compute, storage, networking, and other services.
+    - Useful for understanding immediate costs and optimizing spending by adjusting parameters [3](https://www.reddit.com/r/AZURE/comments/cpqq8h/azure_pricing_calculator_vs_tco_calculator/)[2](https://thisvsthat.io/azure-pricing-calculator-vs-azure-total-cost-of-ownership).
+  - **Total Cost of Ownership (TCO) Calculator**:
+    - Estimates cost savings from migrating workloads to Azure.
+    - Considers additional costs like maintenance, support, and training.
+    - Provides a long-term perspective on the financial implications of using Azure services [3](https://www.reddit.com/r/AZURE/comments/cpqq8h/azure_pricing_calculator_vs_tco_calculator/)[2](https://thisvsthat.io/azure-pricing-calculator-vs-azure-total-cost-of-ownership).
 - Describe cost management capabilities in Azure
+  - **Cost Analysis**: Report on and analyze costs in the Azure portal, Microsoft 365 admin center, or Power BI [4](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/overview-cost-management).
+  - **Budgeting**: Monitor costs proactively with budgets and scheduled alerts [4](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/overview-cost-management).
+  - **Cost Allocation**: Enable tag inheritance and split shared costs with cost allocation rules [4](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/overview-cost-management).
+  - **Automation**: Automate business processes or integrate cost data into external tools by exporting data [4](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/overview-cost-management).
 - Describe the purpose of tags
+  - **Organization**: Tags are key-value pairs that help identify and organize Azure resources based on settings relevant to your organization [5](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources).
+  - **Cost Management**: Tags can be used to track and manage costs by categorizing resources (e.g., by department, project, or environment) [5](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources).
+  - **Automation**: Tags facilitate automation by enabling policies and scripts to apply actions based on tag values [5](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources).
+  - **Compliance**: Tags help ensure resources comply with organizational policies and standards [5](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources).
 
 ### Describe Features and Tools in Azure for Governance and Compliance
 
-- Describe the purpose of Microsoft Purview in Azure
-- Describe the purpose of Azure Policy
-- Describe the purpose of resource locks
+- Describe the purpose of Microsoft Purview in Azure - Microsoft Purview is a comprehensive set of solutions designed to help organizations govern, protect, and manage their data across on-premises, multicloud, and SaaS environments. It provides integrated data governance, data security, and compliance capabilities, enabling organizations to:
+  - Gain visibility into their data estate
+  - Safeguard sensitive data throughout its lifecycle
+  - Govern data seamlessly
+  - Manage critical data risks and regulatory requirements [1](https://learn.microsoft.com/en-us/purview/purview) [2](https://azure.microsoft.com/en-us/blog/azure-purview-is-now-microsoft-purview/) [3](https://docs.azure.cn/en-us/purview/purview-portal)
+- Describe the purpose of Azure Policy - Azure Policy helps enforce organizational standards and assess compliance at scale. It allows you to create, assign, and manage policy definitions that enforce rules and effects for your resources. Common use cases include:
+  - Ensuring resources are deployed only to allowed regions
+  - Enforcing consistent application of tags
+  - Requiring diagnostic logs to be sent to a Log Analytics workspace
+
+    Azure Policy provides a compliance dashboard to evaluate the overall state of the environment and supports automatic remediation for new and existing resources [4](https://learn.microsoft.com/en-us/azure/governance/policy/overview) [5](https://learn.microsoft.com/en-us/azure/governance/policy/) [6](https://petri.com/what-is-azure-policy/).
+- Describe the purpose of resource locks - esource locks in Azure protect your resources from accidental deletions and modifications. They override user permissions and can be applied to subscriptions, resource groups, or individual resources. There are two types of locks:
+  - **Delete (CanNotDelete)**: Authorized users can read and modify a resource, but they cannot delete it.
+  - **Read-only (ReadOnly)**: Authorized users can read a resource, but they cannot delete or update it.
+  Resource locks help ensure critical resources remain intact and prevent accidental or malicious changes [7](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources) [8](https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/using-resource-locks-to-prevent-accidental-changes-in-azure/3842402) [9](https://www.pipeten.com/insights/azure-resource-locks/).
 
 ### Describe Features and Tools for Managing and Deploying Azure Resources
 
-- Describe the Azure portal
-- Describe Azure Cloud Shell, including:
-  - Azure Command-Line Interface (CLI)
-  - Azure PowerShell
-- Describe the purpose of Azure Arc
-- Describe infrastructure as code (IaC)
-- Describe Azure Resource Manager (ARM) and ARM templates
+- Describe the Azure portal - The **Azure Portal** is a web-based, unified console that provides an interface for managing Azure resources. It allows users to build, manage, and monitor everything from simple web apps to complex cloud applications in a single, unified console. Key features include:
+  - **Customizable Dashboard**: Personalize your experience by pinning resources, resizing tiles, and organizing your dashboard.
+  - **Role-Based Access Control (RBAC)**: Fine-grained access control to manage who can access and manage resources.
+  - **Integrated Cloud Shell**: Access Azure CLI and Azure PowerShell directly from the portal.
+  - **Cost Management**: Track and forecast costs, and manage budgets [1](https://portal.azure.com/) [2](https://azure.microsoft.com/en-us/get-started/azure-portal/).
+- Describe Azure Cloud Shell, including: Azure Command-Line Interface (CLI) and Azure PowerShell - **Azure Cloud Shell** is an integrated, browser-accessible shell for managing Azure resources. It provides two shell environments:
+  - **Azure Command-Line Interface (CLI)** - Azure CLI: A cross-platform command-line tool for managing Azure resources. It runs in Bash and other Unix shells, as well as Windows PowerShell and Cmd. Azure CLI is ideal for scripting and automation [3](https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-tool) [4](https://learn.microsoft.com/en-us/cli/azure/use-azure-cli-successfully-powershell).
+  - **Azure PowerShell** - A set of cmdlets for managing Azure resources from the PowerShell command line. It runs on Windows, macOS, and Linux, and is suitable for users familiar with PowerShell scripting [3](https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-tool) [4](https://learn.microsoft.com/en-us/cli/azure/use-azure-cli-successfully-powershell).
+- Describe the purpose of Azure Arc - Azure Arc extends Azure management and services to any infrastructure, including on-premises, multicloud, and edge environments. It provides a centralized, unified way to manage and govern resources such as servers, Kubernetes clusters, and databases as if they were running in Azure. Key benefits include:
+  - **Consistent Management**: Use Azure services and management capabilities across different environments.
+  - **Governance and Security**: Implement consistent policies and security measures across all resources.
+  - **DevOps Integration**: Support for DevOps practices and tools like GitOps [5](https://learn.microsoft.com/en-us/azure/azure-arc/overview) [6](https://azure.microsoft.com/en-us/products/azure-arc/).
+- Describe infrastructure as code (IaC) - **Infrastructure as Code (IaC)** is a DevOps practice that uses code to define and manage infrastructure. IaC allows teams to automate the provisioning and configuration of resources, ensuring consistency and repeatability. Key principles include:
+  - **Declarative Syntax**: Define the desired state of infrastructure without specifying the steps to achieve it.
+  - **Versioning**: Store infrastructure definitions in source control, enabling versioning and collaboration.
+  - **Idempotency**: Ensure that repeated deployments produce the same result, regardless of the initial state [7](https://learn.microsoft.com/en-us/devops/deliver/what-is-infrastructure-as-code) [8](https://aws.amazon.com/what-is/iac/).
+- Describe Azure Resource Manager (ARM) and ARM templates - **Azure Resource Manager (ARM)** is the deployment and management service for Azure. It provides a consistent management layer for Azure resources, enabling users to deploy, manage, and monitor resources as a group.
+  **ARM Templates** are JSON files that define the infrastructure and configuration for Azure resources. They use declarative syntax to specify the resources to deploy and their properties. Key features include:
+  - **Repeatable Deployments**: Ensure consistent deployments across environments.
+  - **Modular Design**: Use linked templates and reusable components to simplify complex deployments.
+  - **Integration with CI/CD**: Automate deployments using continuous integration and continuous delivery pipelines [9](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/) [10](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview).
 
 ### Describe Monitoring Tools in Azure
 
-- Describe the purpose of Azure Advisor
-- Describe Azure Service Health
-- Describe Azure Monitor, including:
-  - Log Analytics
-  - Azure Monitor alerts
-  - Application Insights
+- Describe the purpose of Azure Advisor - **Azure Advisor** is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry, then provides recommendations to improve cost effectiveness, performance, reliability, and security. Key features include:
+  - **Cost**: Recommendations to optimize and reduce your overall Azure spending.
+  - **Security**: Identifies potential security vulnerabilities and suggests improvements.
+  - **Performance**: Offers suggestions to enhance the speed and efficiency of your applications.
+  - **Reliability**: Ensures the continuity of your business-critical applications.
+  - **Operational Excellence**: Helps achieve process and workflow efficiency [1](https://learn.microsoft.com/en-us/azure/advisor/advisor-overview) [2](https://learn.microsoft.com/en-us/azure/advisor/) [3](https://azure.microsoft.com/en-us/products/advisor).
+- Describe Azure Service Health - **Azure Service Health** provides personalized alerts and guidance for Azure service issues. It helps you stay informed about service incidents, planned maintenance, and health advisories that affect your Azure resources. Key components include:
+  - **Azure Status**: A global view of the health of all Azure services across all regions.
+  - **Service Health**: Personalized view of the health of the Azure services and regions you are using.
+  - **Resource Health**: Information about the health of your individual cloud resources[4](https://learn.microsoft.com/en-us/azure/service-health/overview)[5](https://azure.microsoft.com/en-us/get-started/azure-portal/service-health/)[6](https://learn.microsoft.com/en-us/azure/service-health/azure-status-overview).
+- Describe Azure Monitor - **Azure Monitor** is a comprehensive solution for collecting, analyzing, and acting on telemetry data from your cloud and on-premises environments. It helps you maximize the performance and availability of your applications and proactively identify issues.
+  - including:
+    - Log Analytics - **Log Analytics** is a tool within Azure Monitor that lets you run and edit log queries against data in the Azure Monitor Logs store. It provides two modes:
+      - **Simple Mode**: Intuitive, spreadsheet-like experience for basic users.
+      - **KQL Mode**: Full power of Kusto Query Language (KQL) for advanced users [7](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview) [8](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview) [9](https://techcommunity.microsoft.com/discussions/azureobservability/difference-between-log-analytics-and-monitor/1290086).
+    - Azure Monitor alerts - **Azure Monitor Alerts** notify you when Azure Monitor data indicates there might be a problem with your infrastructure or application. Alerts can be based on metrics, logs, and activity logs. Key features include:
+      - **Action Groups**: Trigger notifications or automated workflows.
+      - **Alert Conditions**: Define criteria for when an alert should be triggered.
+      - **Alert Processing Rules**: Modify triggered alerts by adding or suppressing action groups [10](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview) [11](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types) [12](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-manage-alert-rules).
+    - Application Insights - **Application Insights** is an application performance monitoring (APM) service within Azure Monitor. It provides insights into the performance and usage of your applications, helping you detect and diagnose issues. Key features include:
+      - **Application Dashboard**: Overview of application health and performance.
+      - **Application Map**: Visual representation of application architecture and interactions.
+      - **Live Metrics**: Real-time analytics dashboard for application activity.
+      - **Transaction Search**: Trace and diagnose transactions to optimize performance [13](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) [14](https://learn.microsoft.com/en-us/azure/azure-monitor/app/usage) [15](https://learn.microsoft.com/en-us/azure/azure-monitor/app/overview-dashboard).
